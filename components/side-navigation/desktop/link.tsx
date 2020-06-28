@@ -1,60 +1,29 @@
 import React from "react";
-import classNames from "classnames";
 import theme from "../../../styles/theme";
 import Link from "next/link";
 import {NavigationItem} from "../container";
 
 interface Props {
     item: NavigationItem
-    selectItem: Function
-    selectedItemId: number
+    hideDropDown: Function
+    showDropDownDebounce: Function
+    cancelShow: Function
 }
 
-export default class extends React.Component<any, any> {
-    private itemRef: HTMLDivElement;
-
-    constructor(props) {
-        super(props)
-        this.state = {
-            isHovered: false,
-        }
-    }
-
-    handleMouseEnter = (selectedItem: NavigationItem) => {
-        this.setState(prevState => ({isHovered: !prevState.isHovered})) // todo: use just true/false
-        this.props.showDropDownDebounce(selectedItem)
-    }
-
-    handleMouseLeave = e => {
-        this.setState(prevState => ({isHovered: !prevState.isHovered}))
-        this.props.cancelShow(e)
-    }
-
-    //onMouseMove = e => {
-    //    this.setState({x: e.screenX, y: e.screenY});
-    //}
-
+export default class extends React.Component<Props, null> {
     render() {
-        const {item, hideDropDown} = this.props
+        const {item, hideDropDown, showDropDownDebounce, cancelShow} = this.props
         return (
             <div
                 className="container container_flex"
-                ref={component => this.itemRef = component}
                 onClick={() => hideDropDown()}
-                onMouseEnter={() => this.handleMouseEnter(item)}
-                onMouseLeave={e => this.handleMouseLeave(e)}
+                onMouseEnter={() => showDropDownDebounce(item)}
+                onMouseLeave={() => cancelShow()}
             >
                 <Link href={`/${item.link}`}>
-                    <a className={classNames('link', {
-                        'link_active': this.state.isHovered
-                    })}>{item.name}</a>
+                    <a className="link">{item.name}</a>
                 </Link>
-                {item.subItems && item.subItems.length &&
-                <div
-                    className={classNames('arrow', {
-                        'arrow_active': this.state.isHovered
-                    })}
-                />}
+                {item.subItems && item.subItems.length && <div className="arrow"/>}
 
                 <style jsx>{`  
                     .container {
@@ -74,10 +43,6 @@ export default class extends React.Component<any, any> {
                     .link:first-letter {
                         text-transform: capitalize;
                     }
-                    .link_active {
-                        color: ${theme.colors.blue};
-                        transition: ${theme.animation.transition};
-                    }
                     .arrow {
                         margin-top: 5px;
                         width: 7px;
@@ -86,8 +51,12 @@ export default class extends React.Component<any, any> {
                         border-width: 0 1px 1px 0;
                         transform: rotate(-45deg);
                     }
-                    .arrow_active {
+                    .link:hover {
+                        color: ${theme.colors.blue};
+                     }
+                    .link:hover + .arrow {
                         border-color: ${theme.colors.blue};
+                        transform: translateX(${theme.space[1]}px) rotate(-45deg);
                         transition: ${theme.animation.transition};
                     }
                 `}</style>

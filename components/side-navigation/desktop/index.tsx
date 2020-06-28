@@ -7,10 +7,13 @@ interface Props {
     items: Array<NavigationItem>
 }
 
-export default class extends React.Component<any, any> {
+interface State {
+    selectedItem: NavigationItem
+}
+
+export default class extends React.Component<Props, State> {
     private containerRef: HTMLDivElement
     private debounceTimer: NodeJS.Timeout
-    private debounceTimer2: NodeJS.Timeout
     private debounce: number = 150
 
     constructor(props) {
@@ -42,7 +45,7 @@ export default class extends React.Component<any, any> {
         }
     }
 
-    cancelShow = (e) => {
+    cancelShow = () => {
         clearTimeout(this.debounceTimer)
     }
 
@@ -62,16 +65,18 @@ export default class extends React.Component<any, any> {
                 {this.state.selectedItem && this.state.selectedItem.subItems && (
                     <DropDown
                         item={this.state.selectedItem}
-                        showDropDownDebounce={this.showDropDownDebounce}
-                        cancelShow={this.cancelShow}
-                        timer={this.debounceTimer2}
+                        hideDropDown={this.hideDropDown}
                     />
                 )}
 
                 <style jsx>{`
                 .container {
                     position: fixed;
-                    //min-height: 600px;
+                    // 600px is the height of drop-down component.
+                    // if height is not defined, trajectory on last item (Хоз. товары) will not forgive you, because
+                    // event -> ref.addEventListener('mouseleave', this.hideDropDown) will be dispatched
+                    // and drop-down will close :(
+                    height: 400px;  
                 }
             `}</style>
             </div>

@@ -3,11 +3,7 @@ import theme from "../../../../styles/theme";
 
 export default function (props) {
     return (
-        <div className="container" onMouseEnter={() => {
-            props.showDropDownDebounce(props.item)
-            //props.cancelShow()
-            clearTimeout(props.timer)
-        }}>
+        <div className="container">
             {props.item.subItems.map(item => (
                 <div key={item.id}>{item.name}</div>
             ))}
