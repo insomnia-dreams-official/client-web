@@ -5,7 +5,7 @@ import theme from "../../../../styles/theme";
 
 export default function () {
     return (
-        <div className="header-main__logo header-main__item_pointer">
+        <div className="header-main__logo header-main__item_pointer logo__container">
             <Link href="/">
                 <a className="header-main__link">
                     <SvgLogo
@@ -16,6 +16,10 @@ export default function () {
             </Link>
 
             <style jsx>{`
+                .logo__container {
+                    //width: ${theme.sideNavigation.width};
+                }
+
                 @media (max-width: ${theme.sizes.laptop}) {
                     :global(.logo-icon__header-main) {
                         height: 25px;

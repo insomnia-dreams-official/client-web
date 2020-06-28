@@ -6,10 +6,11 @@ import theme from "../../styles/theme";
 
 export default function Layout(props) {
     return (
-        <div onTouchStart={() => {}} className="layout">
+        <div onTouchStart={() => {}} className="layout layout__wrapper">
             {/*
+            --> onTouchStart={() => {}} <--
             This hack solve issue with :active pseudo selector in safari browser.
-            *otherwise after you click, background will not be changed
+            *otherwise after click, background will not be changed
             https://stackoverflow.com/questions/3885018/active-pseudo-class-doesnt-work-in-mobile-safari
             solution -> onTouchStart={} + .layout { -webkit-tap-highlight-color: rgba(0,0,0,0); }
             */}
@@ -23,6 +24,9 @@ export default function Layout(props) {
 
            <style jsx>{`
                 .layout {}
+                .layout__wrapper {
+                    background: ${theme.colors.gray_light};
+                }
                 .layout__main {}
                 .layout__content {
                     margin-left: ${theme.sideNavigation.width};
