@@ -34,7 +34,7 @@ export default function HeaderTop() {
 
             <style jsx>{`
                 .header-top__wrapper {
-                    background-color: ${theme.colors.gray_light};
+                    background-color: ${theme.colors.gray_lightest};
                 }
                 .header-top__container {
                     display: flex;

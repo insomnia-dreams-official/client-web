@@ -1,7 +1,10 @@
 const colors = {
     blue: '#155094',
     blue_dark: '#0f3a7d',
-    gray_light: '#ECF0F1',
+    gray: '#555',
+    gray_lightest: '#ECF0F1', // background
+    gray_dark: '#333',
+    gray_light: '#ccc', // side-navigation arrows
     black: '#0e1111',
     white: '#FFF',
 };
@@ -66,15 +69,15 @@ const theme = {
                 borderColor: colors.blue,
                 background: 'transparent',
                 hover: {
-                    color: colors.gray_light,
+                    color: colors.gray_lightest,
                     background: colors.blue,
                 },
             },
             blue: {
-                color: colors.gray_light,
+                color: colors.gray_lightest,
                 background: colors.blue,
                 hover: {
-                    color: colors.gray_light, // color is the same
+                    color: colors.gray_lightest, // color is the same
                     background: colors.blue_dark,
                 },
             },
@@ -88,7 +91,8 @@ const theme = {
     ],
     sideNavigation: {
         width: '200px'
-    }
+    },
+    shadow: '0 1px 5px rgba(0,0,0,.3)'
 }
 
 export default theme

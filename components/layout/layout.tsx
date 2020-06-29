@@ -25,7 +25,7 @@ export default function Layout(props) {
            <style jsx>{`
                 .layout {}
                 .layout__wrapper {
-                    background: ${theme.colors.gray_light};
+                    background: ${theme.colors.gray_lightest};
                 }
                 .layout__main {}
                 .layout__content {

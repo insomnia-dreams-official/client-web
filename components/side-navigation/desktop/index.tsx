@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "./link"
+import SideNavigationLink from "./link"
 import DropDown from "./drop-down"
 import {NavigationItem} from "../container";
 
@@ -51,9 +51,9 @@ export default class extends React.Component<Props, State> {
 
     render() {
         return (
-            <div className="side-navigation__desktop container" ref={component => this.containerRef = component}>
+            <div className="side-navigation__desktop container" ref={c => this.containerRef = c}>
                 {this.props.items.map(item => (
-                    <Link
+                    <SideNavigationLink
                         key={item.id}
                         item={item}
                         showDropDownDebounce={this.showDropDownDebounce}
@@ -62,7 +62,7 @@ export default class extends React.Component<Props, State> {
                     />
                 ))}
 
-                {this.state.selectedItem && this.state.selectedItem.subItems && (
+                {this.state.selectedItem && this.state.selectedItem.items && (
                     <DropDown
                         item={this.state.selectedItem}
                         hideDropDown={this.hideDropDown}
@@ -76,7 +76,7 @@ export default class extends React.Component<Props, State> {
                     // if height is not defined, trajectory on last item (Хоз. товары) will not forgive you, because
                     // event -> ref.addEventListener('mouseleave', this.hideDropDown) will be dispatched
                     // and drop-down will close :(
-                    height: 400px;  
+                    // TODO: REPLAY CARDS WITH FORGIVING TRIANGLES https://css-tricks.com/dropdown-menus-with-more-forgiving-mouse-movement-paths/
                 }
             `}</style>
             </div>

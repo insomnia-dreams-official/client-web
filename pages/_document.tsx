@@ -15,7 +15,7 @@ class MyDocument extends Document {
                     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                     <link
                         rel="stylesheet"
-                        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=cyrillic"
+                        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600&amp;subset=cyrillic"
                     />
                 </Head>
                 <body>

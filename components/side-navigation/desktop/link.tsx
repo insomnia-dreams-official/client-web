@@ -16,20 +16,20 @@ export default class extends React.Component<Props, null> {
         return (
             <div
                 className="container container_flex"
-                onClick={() => hideDropDown()}
+                onClick={() => hideDropDown}
                 onMouseEnter={() => showDropDownDebounce(item)}
                 onMouseLeave={() => cancelShow()}
             >
                 <Link href={`/${item.link}`}>
                     <a className="link">{item.name}</a>
                 </Link>
-                {item.subItems && item.subItems.length && <div className="arrow"/>}
+                {item.items && item.items.length && <div className="arrow"/>}
 
                 <style jsx>{`  
                     .container {
                         width: ${theme.sideNavigation.width};
-                        padding-top: 5px;
-                        padding-bottom: 5px;
+                        padding-top: 10px;
+                        padding-bottom: 10px;
                         padding-left: ${theme.space[1]}px; // to separate link's text from screen border
                         padding-right: 10px;
                         cursor: pointer;
@@ -37,7 +37,7 @@ export default class extends React.Component<Props, null> {
                         justify-content: space-between;
                     }
                     .link {
-                        color: #555;
+                        color: ${theme.colors.gray};
                         text-decoration: none;
                     }
                     .link:first-letter {
@@ -47,7 +47,7 @@ export default class extends React.Component<Props, null> {
                         margin-top: 5px;
                         width: 7px;
                         height: 7px;
-                        border: solid #ccc;
+                        border: solid ${theme.colors.gray_light};
                         border-width: 0 1px 1px 0;
                         transform: rotate(-45deg);
                     }
