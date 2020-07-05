@@ -23,7 +23,7 @@ export default class extends React.Component<Props, null> {
                 <Link href={`/${item.link}`}>
                     <a className="link">{item.name}</a>
                 </Link>
-                {item.items && item.items.length && <div className="arrow"/>}
+                {item.items && !!item.items.length && <div className="arrow"/>}
 
                 <style jsx>{`  
                     .container {
@@ -51,10 +51,10 @@ export default class extends React.Component<Props, null> {
                         border-width: 0 1px 1px 0;
                         transform: rotate(-45deg);
                     }
-                    .link:hover {
+                    .container:hover > .link {
                         color: ${theme.colors.blue};
                      }
-                    .link:hover + .arrow {
+                    .container:hover > .arrow {
                         border-color: ${theme.colors.blue};
                         transform: translateX(${theme.space[1]}px) rotate(-45deg);
                         transition: ${theme.animation.transition};

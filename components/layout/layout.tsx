@@ -5,6 +5,7 @@ import SideNavigation from "../side-navigation";
 import theme from "../../styles/theme";
 
 export default function Layout(props) {
+
     return (
         <div onTouchStart={() => {}} className="layout layout__wrapper">
             {/*
@@ -17,10 +18,11 @@ export default function Layout(props) {
 
             <Header/>
             <div className="layout__main container_limit_max-width">
-                <SideNavigation/>
+                {/* @ts-ignore*/}
+                <SideNavigation navigation={props.navigation}/>
                 <div className="layout__content">{props.children}</div>
+                <Footer/>
             </div>
-            <Footer/>
 
            <style jsx>{`
                 .layout {}

@@ -19,7 +19,7 @@ class MyDocument extends Document {
                     />
                 </Head>
                 <body>
-                <Main/>
+                <Main />
                 <NextScript/>
                 <style jsx global>{`
                     /*

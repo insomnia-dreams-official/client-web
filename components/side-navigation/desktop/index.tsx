@@ -50,26 +50,28 @@ export default class extends React.Component<Props, State> {
     }
 
     render() {
-        return (
-            <div className="side-navigation__desktop container" ref={c => this.containerRef = c}>
-                {this.props.items.map(item => (
-                    <SideNavigationLink
-                        key={item.id}
-                        item={item}
-                        showDropDownDebounce={this.showDropDownDebounce}
-                        hideDropDown={this.hideDropDown}
-                        cancelShow={this.cancelShow}
-                    />
-                ))}
+        // @ts-ignore
+        if (this.props.items) {
+            return (
+                <div className="side-navigation__desktop container" ref={c => this.containerRef = c}>
+                    {this.props.items.map(item => (
+                        <SideNavigationLink
+                            key={item.id}
+                            item={item}
+                            showDropDownDebounce={this.showDropDownDebounce}
+                            hideDropDown={this.hideDropDown}
+                            cancelShow={this.cancelShow}
+                        />
+                    ))}
 
-                {this.state.selectedItem && this.state.selectedItem.items && (
-                    <DropDown
-                        item={this.state.selectedItem}
-                        hideDropDown={this.hideDropDown}
-                    />
-                )}
+                    {this.state.selectedItem && !!this.state.selectedItem.items.length && (
+                        <DropDown
+                            item={this.state.selectedItem}
+                            hideDropDown={this.hideDropDown}
+                        />
+                    )}
 
-                <style jsx>{`
+                    <style jsx>{`
                 .container {
                     position: fixed;
                     // 600px is the height of drop-down component.
@@ -79,7 +81,10 @@ export default class extends React.Component<Props, State> {
                     // TODO: REPLAY CARDS WITH FORGIVING TRIANGLES https://css-tricks.com/dropdown-menus-with-more-forgiving-mouse-movement-paths/
                 }
             `}</style>
-            </div>
-        )
+                </div>
+            )
+        } else {
+            return null
+        }
     }
 }
