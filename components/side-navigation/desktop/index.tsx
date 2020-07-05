@@ -18,10 +18,12 @@ export default class extends React.Component<Props, State> {
 
     constructor(props) {
         super(props)
+
         this.state = {
             selectedItem: null
         }
     }
+
 
     showDropDown = (selectedItem: NavigationItem) => {
         this.setState({selectedItem}, () => {

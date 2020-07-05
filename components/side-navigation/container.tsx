@@ -3,7 +3,7 @@ import DesktopSideNavigation from './desktop'
 import theme from "../../styles/theme"
 
 interface SimpleItem {
-    id: number
+    id: string
     name: string
     path?: string
     link: string
