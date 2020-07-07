@@ -13,13 +13,14 @@ class MyDocument extends Document {
             <Html>
                 <Head>
                     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                    {/* main font */}
                     <link
                         rel="stylesheet"
                         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600&amp;subset=cyrillic"
                     />
                 </Head>
                 <body>
-                <Main />
+                <Main/>
                 <NextScript/>
                 <style jsx global>{`
                     /*

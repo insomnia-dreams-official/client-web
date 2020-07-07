@@ -18,6 +18,7 @@
     "next": "9.4.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-slick": "^0.26.1",
     "sass": "^1.26.9"
   },
   "devDependencies": {

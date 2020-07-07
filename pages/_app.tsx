@@ -1,6 +1,8 @@
 import React from "react"
-import {ApolloProvider, useQuery} from '@apollo/react-hooks'
+import {ApolloProvider} from '@apollo/react-hooks'
 import '../styles/global.scss'
+import '../styles/slick/slick.css'
+import '../styles/slick/slick.theme.css'
 import Layout from "../components/layout/layout"
 import {initializeApollo, useApollo} from "../libs/appolo-client"
 import gql from "graphql-tag";
