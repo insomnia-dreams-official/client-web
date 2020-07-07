@@ -14,7 +14,7 @@ export default class extends Component {
     render() {
         return (
             <div className="slider-container">
-                        <Slider {...settings}>
+                 <Slider {...settings}>
                     <div>
                         <img src="/slider/2.jpg" alt="*"/>
                     </div>
@@ -24,9 +24,7 @@ export default class extends Component {
                 </Slider>
 
                 <style jsx>{`
-                    .slider-container {
-                        margin-top: ${theme.space[1]}px;
-                    }
+                    .slider-container {}
                     img {
                         border-radius: ${theme.radii[2]};
                     }
