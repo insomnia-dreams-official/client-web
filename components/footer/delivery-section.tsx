@@ -3,14 +3,20 @@ import React from "react";
 
 export default function () {
     return(
-        <div className="delivery-section">
-            delivery-section
+        <div className="footer-section delivery-section">
+            <img src="/delivery.png" alt="доставка"/>
+            <div className="text">
+                В Marinus мы осуществяем бесплатную доставку по Екатеринбургу.
+                Ваш заказ будет упакован с осторожностью на нашем складе
+                и доставлен прямо к вашей двери нашей дружной командой
+            </div>
 
             <style jsx>{`
                 .delivery-section {
-                    border-bottom: ${theme.borders[1]};
-                    border-color: ${theme.colors.gray_light};
-                    padding: ${theme.space[4]}px 0;                
+                    display: flex;  
+                 }
+                img {
+                    height: 90%;
                 }
             `}</style>
         </div>
