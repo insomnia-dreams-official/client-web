@@ -13,6 +13,8 @@ export default function (props) {
                 .category-pile {
                     height: 300px;
                     flex-basis: 49.5%;
+                    margin-bottom: ${theme.space[2]}px;
+                    // margin-right: ${theme.space[2]}px;
                     background-image: ${`url(/category-piles/${category.path}.png)`};
                     background-size: cover;
                     background-repeat: no-repeat;

@@ -1,4 +1,3 @@
-import theme from "../../styles/theme";
 import React from "react";
 
 export default function () {

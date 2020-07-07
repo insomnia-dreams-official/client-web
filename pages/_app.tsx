@@ -5,7 +5,7 @@ import '../styles/slick/slick.css'
 import '../styles/slick/slick.theme.css'
 import Layout from "../components/layout/layout"
 import {initializeApollo, useApollo} from "../libs/appolo-client"
-import gql from "graphql-tag";
+import {GET_NAVIGATION_ITEMS} from "../graphql/navigation.query";
 
 export default function MyApp({Component, pageProps}) {
     const apolloClient = useApollo(pageProps.initialApolloState)
@@ -20,22 +20,7 @@ export default function MyApp({Component, pageProps}) {
 
 MyApp.getInitialProps = async ({Component, ctx}) => {
     const apolloClient = initializeApollo()
-    const {loading, error, data} = await apolloClient.query({
-        query: gql`
-                       {
-                         navigation {
-                           id
-                           name
-                           link
-                           items {
-                             id
-                             name
-                             link
-                           }
-                         }
-                       }
-                   `
-    });
+    const {loading, error, data} = await apolloClient.query({query: GET_NAVIGATION_ITEMS});
 
     let pageProps = {};
     if (Component.getInitialProps) {
