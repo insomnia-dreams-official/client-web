@@ -76,6 +76,7 @@ export default class extends React.Component<Props, State> {
                     <style jsx>{`
                 .container {
                     position: fixed;
+                    z-index: 10;
                     // 600px is the height of drop-down component.
                     // if height is not defined, trajectory on last item (Хоз. товары) will not forgive you, because
                     // event -> ref.addEventListener('mouseleave', this.hideDropDown) will be dispatched

@@ -14,7 +14,7 @@ export default class extends Component {
     render() {
         return (
             <div className="slider-container">
-                <Slider {...settings}>
+                        <Slider {...settings}>
                     <div>
                         <img src="/slider/2.jpg" alt="*"/>
                     </div>

@@ -24,7 +24,7 @@
 }
 
 .slick-next, .slick-prev {
-    z-index: 2;
+    z-index: 1;
     font-size: 0;
     line-height: 0;
     top: 50%;
