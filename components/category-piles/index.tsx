@@ -8,7 +8,7 @@ const categories = [
         path: '1'
     },
     {
-        id: '0002',
+        articul: '0002',
         name: 'бумажная продукция',
         path: '2'
     }

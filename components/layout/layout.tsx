@@ -32,6 +32,9 @@ export default function Layout(props) {
                 .layout__main {}
                 .layout__content {
                     margin-left: ${theme.sideNavigation.width};
+                    padding-bottom: ${theme.space[4]}px;
+                    border-bottom: ${theme.borders[1]};
+                    border-color: ${theme.colors.gray_light};
                 }
                 
                 @media (max-width: ${theme.sizes.laptop}) { // render content on the full screen for small devices
